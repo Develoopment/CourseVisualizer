@@ -102,6 +102,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     ele.style('background-color', 'grey'); // Reset to default color
                     ele.style('width', '50') //reset to different size
                     ele.style('height', '50')
+                } else if(ele.isEdge()){
+                    // stop the edges animation
+                    ele.stop()
+                    // reset to default grey solid line
+                    ele.style('line-style', "solid")
                 }
             });
 

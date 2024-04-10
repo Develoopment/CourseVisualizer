@@ -1,124 +1,119 @@
 var courses = {
     nodes: [
-        { data: { id: '1.00', name: "Honors English 1", weightage: "Honors"}},
-        { data: { id: '1.01', name: "Honors English 2", weightage: "Honors"} },
-        { data: { id: '1.02', name: "Honors English 3", weightage: "Honors"} },
-        { data: { id: '1.03', name: "Honors English 4", weightage: "Honors"} },
-        { data: { id: '1.04', name: "AP Language and Composition", weightage: "AP"} },
-        { data: { id: '1.05', name: "AP Literature", weightage: "AP"} },
-        { data: { id: '1.06', name: "Dual Credit British Literature", weightage: "AP"} },
+        { data: { id: 'Honors English 1', name: "Honors English 1", weightage: "Honors", minGradeToEnroll: 9}},
+        { data: { id: 'Honors English 2', name: "Honors English 2", weightage: "Honors", minGradeToEnroll: 10} },
+        { data: { id: 'Honors English 3', name: "Honors English 3", weightage: "Honors", minGradeToEnroll: 11} },
+        { data: { id: 'Honors English 4', name: "Honors English 4", weightage: "Honors", minGradeToEnroll: 12} },
+        { data: { id: 'AP Language and Composition', name: "AP Language and Composition", weightage: "AP", minGradeToEnroll: 9} },
+        { data: { id: 'AP Literature', name: "AP Literature", weightage: "AP"} },
         
-        { data: { id: '1.07', name: "English 1 On Level", weightage: "On-Level"}},
-        { data: { id: '1.08', name: "English 2 On Level", weightage: "On-Level"}},
-        { data: { id: '1.09', name: "English 3 On Level", weightage: "On-Level"}},
-        { data: { id: '1.10', name: "English 4 On Level", weightage: "On-Level"}},
+        { data: { id: 'English 1 On Level', name: "English 1 On Level", weightage: "On-Level", minGradeToEnroll: 9}},
+        { data: { id: 'English 2 On Level', name: "English 2 On Level", weightage: "On-Level", minGradeToEnroll: 10}},
+        { data: { id: 'English 3 On Level', name: "English 3 On Level", weightage: "On-Level", minGradeToEnroll: 11}},
+        { data: { id: 'English 4 On Level', name: "English 4 On Level", weightage: "On-Level", minGradeToEnroll: 12}},
 
-        { data: { id: '1.11', name: "Humanities GT", weightage: "AP"}},
-        { data: { id: '1.12', name: "Humanities 2 GT", weightage: "AP"}},
-        { data: { id: '1.13', name: "American Studies GT", weightage: "AP"}},
+        { data: { id: 'Humanities GT', name: "Humanities GT", weightage: "AP", minGradeToEnroll: 9}},
+        { data: { id: 'Humanities 2 GT', name: "Humanities 2 GT", weightage: "AP", minGradeToEnroll: 10}},
+        { data: { id: 'American Studies GT', name: "American Studies GT", weightage: "AP", minGradeToEnroll: 11}},
 
-        { data: { id: '1.14', name: "Dual Credit English 1301/1302", weightage: "AP"}},
-        { data: { id: '1.15', name: "Dual Credit English 2322/2323", weightage: "AP"}},
+        { data: { id: 'Dual Credit English 1301/1302', name: "Dual Credit English 1301/1302", weightage: "AP", minGradeToEnroll: 11}},
+        { data: { id: 'Dual Credit English 2322/2323', name: "Dual Credit English 2322/2323", weightage: "AP", minGradeToEnroll: 11}},
     ],
     edges: [
 
         {data: {
         // id: 'heng1-heng',
-        source: '1.00',
-        target: '1.01'
+        source: 'Honors English 1',
+        target: 'Honors English 2'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.01',
-        target: '1.02'
+        source: 'Honors English 2',
+        target: 'Honors English 3'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.02',
-        target: '1.03'
+        source: 'Honors English 3',
+        target: 'Honors English 4'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.03',
-        target: '1.04'
+        source: 'Honors English 4',
+        target: 'AP Language and Composition'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.07',
-        target: '1.08'
+        source: 'English 1 On Level',
+        target: 'English 2 On Level'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.08',
-        target: '1.09'
+        source: 'English 2 On Level',
+        target: 'English 3 On Level'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.09',
-        target: '1.10'
+        source: 'English 3 On Level',
+        target: 'English 4 On Level'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.02',
-        target: '1.04'
+        source: 'Honors English 3',
+        target: 'AP Language and Composition'
         }},
         {data: {
         // id: 'heng1-heng',
-        source: '1.04',
-        target: '1.05'
+        source: 'AP Language and Composition',
+        target: 'AP Literature'
         }},
         
+
         {data: {
         // id: 'heng1-heng',
-        source: '1.04',
-        target: '1.06'
-        }},
-        {data: {
-        // id: 'heng1-heng',
-        source: '1.01',
-        target: '1.04'
+            source: 'Honors English 2',
+            target: 'AP Language and Composition'
         }},
         
         {data: {
             // id: 'heng1-heng',
-            source: '1.11',
-            target: '1.12'
+            source: 'Humanities GT',
+            target: 'Humanities 2 GT'
         }},
         {data: {
             // id: 'heng1-heng',
-            source: '1.14',
-            target: '1.15'
+            source: 'Dual Credit English 1301/1302',
+            target: 'Dual Credit English 2322/2323'
         }},
         {data: {
             // id: 'heng1-heng',
-            source: '1.12',
-            target: '1.13'
+            source: 'Humanities 2 GT',
+            target: 'American Studies GT'
         }},
         {data: {
             // id: 'heng1-heng',
-            source: '1.13',
-            target: '1.05'
+            source: 'American Studies GT',
+            target: 'AP Literature'
         }},
         {data: {
             // id: 'heng1-heng',
-            source: '1.01',
-            target: '1.14'
+            source: 'Honors English 2',
+            target: 'Dual Credit English 1301/1302'
         }},
 
         {data: {
             // id: 'heng1-heng',
-            source: '1.07',
-            target: '1.01'
+            source: 'English 1 On Level',
+            target: 'Honors English 2'
         }},
         {data: {
             // id: 'heng1-heng',
-            source: '1.08',
-            target: '1.02'
+            source: 'English 2 On Level',
+            target: 'Honors English 3'
         }},
         {data: {
             // id: 'heng1-heng',
-            source: '1.09',
-            target: '1.03'
+            source: 'English 3 On Level',
+            target: 'Honors English 4'
         }},
     ]
 }
