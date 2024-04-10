@@ -1,0 +1,91 @@
+<!DOCTYPE>
+
+<html>
+
+	<head>
+		<title>cytoscape-klay.js demo</title>
+
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.7.2/cytoscape.min.js"></script>
+		
+		<script src="https://unpkg.com/klayjs@0.4.1/klay.js"></script>
+		<script src="https://unpkg.com/cytoscape-klay@3.1.2/cytoscape-klay.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/elkjs@0.3.0/lib/elk.bundled.js"></script>
+		<script src="https://unpkg.com/cytoscape-elk@1.1.10/cytoscape-elk.js"></script>
+
+
+        <script src="courseelements.js"></script>
+
+		<style>
+			body {
+				font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+				font-size: 14px;
+			}
+
+			#cy {
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				z-index: 999;
+			}
+
+			h1 {
+				opacity: 0.5;
+				font-size: 1em;
+				font-weight: bold;
+			}
+		</style>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function(){
+
+				var cy = window.cy = cytoscape({
+					container: document.getElementById('cy'),
+
+					// demo your layout
+					layout: {
+						name: 'klay',
+
+						// some more options here...
+					},
+
+					style: [
+						{
+							selector: 'node',
+							style: {
+								'background-color': '#dd4de2'
+							}
+						},
+
+						{
+							selector: 'edge',
+							style: {
+								'curve-style': 'bezier',
+								'target-arrow-shape': 'triangle',
+								'line-color': '#dd4de2',
+								'target-arrow-color': '#dd4de2',
+								'opacity': 0.5
+							}
+						}
+					],
+
+					elements: courses
+				});
+
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<h1>cytoscape-klay demo</h1>
+
+		<div id="cy"></div>
+
+	</body>
+
+</html>
