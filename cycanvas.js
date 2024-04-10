@@ -36,12 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
     cy.on('tap', 'node', function (event) {
         var node = event.target;
 
-        // Reset color of all nodes
+        // Reset color of all nodes and reset animations on the edges
         cy.elements().forEach(function (ele) {
             if (ele.isNode()) {
                 ele.style('background-color', 'grey'); // Reset to default color
                 ele.style('width', '50') //reset to different size
                 ele.style('height', '50')
+            } else if(ele.isEdge()){
+                // stop the edges animation
+                ele.stop()
+                // reset to default grey solid line
+                ele.style('line-style', "solid")
             }
         });
 
@@ -49,11 +54,44 @@ document.addEventListener("DOMContentLoaded", function() {
         node.style('background-color', 'green'); // Change to desired color
         node.style('width', '70') //change to different size
         node.style('height', '70')
+
+        // Add animations showing which courses you can take from the selected node
+
+        // Function that makes the edges become animated dashes - used to change outgoing edges when the user selects a course node
+        let loopAnimation = eles => {
+            
+            const animatedEdge = eles.animation(
+                {
+                  style: {
+                    "line-dash-offset": 24,
+                    "line-dash-pattern": [8, 4],
+                  }
+                },
+                {
+                  duration: 1000
+                }
+            );
+
+            animatedEdge.reverse().play().promise('complete').then(() => loopAnimation(eles))
+
+          };
+        
+        // FIRST Iteration: just change the color and style of the edges pointing away from the selected node
+        // get the edges and nodes connected to the selected node
+        // if element is an edge then change it's styles
+        node.outgoers().forEach((ele) => {
+            if (ele.isEdge()){
+                ele.style('line-style', "dashed");
+                ele.style('line-dash-pattern', [8, 4]);
+                loopAnimation(ele)
+            }
+        })
+
     });
     
+    // if the user clicks on something that is not an node or edge (i.e. the background) a error is thrown so reset all of nodes back to default color when there is an error
     cy.on('tap', function (evt) {
 
-        // if the user clicks on something that is not an node or edge (i.e. the background) a error is thrown so reset all of nodes back to default color when there is an error
         try {
             (evt.target.isNode() || evt.target.isEdge())
         } catch(error) {
